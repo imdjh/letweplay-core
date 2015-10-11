@@ -9,5 +9,6 @@ RUN git clone https://github.com/rauchg/weplay-emulator /srv/weplay-emu && \
 # daocloud MAGIC
 EXPOSE 8000
 
-COPY docker-entrypoint.sh /entrypoint.sh
-CMD ["entrypoint.sh"]
+ADD docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]

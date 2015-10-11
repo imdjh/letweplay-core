@@ -6,7 +6,8 @@ RUN git clone https://github.com/rauchg/weplay-emulator /srv/weplay-emu && \
         npm install && \
         npm install -g forever
 
-EXPOSE 8000  # daocloud MAGIC
+# daocloud MAGIC
+EXPOSE 8000
 
 COPY docker-entrypoint.sh /entrypoint.sh
 CMD ["entrypoint.sh"]

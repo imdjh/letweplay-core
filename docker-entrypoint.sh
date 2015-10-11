@@ -3,8 +3,8 @@
 if [ ! -z "${GAME}" ];then
     echo "Fetching game..."
     curl -fsSL http://imdjh-dn.daoapp.io/${GAME} -o /usr/src/game-data
-    file /usr/src/game-data > /var/tmp/game-data.result
-    if [ $(grep -qi html /var/tmp/game-data.result) ];then
+    file /usr/src/game-data > /var/tmp/game-data.filetype
+    if ( $(grep -qi html /var/tmp/game-data.filetype) );then
         echo 'Bad GAME selection, please try another one!'
         exit 1
     fi

@@ -1,7 +1,7 @@
 FROM node:0.10
 MAINTAINER Jiahao Dai<dyejarhoo@gmail.com>
 
-RUN git clone https://github.com/rauchg/weplay-emulator /srv/weplay-emu && \
+RUN git clone https://github.com/imdjh/weplay-emulator /srv/weplay-emu && \
         cd /srv/weplay-emu && \
         npm install && \
         npm install -g forever

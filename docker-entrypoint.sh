@@ -16,8 +16,11 @@ if [ ! -z "${GAME}" ];then
     export WEPLAY_ROM="/usr/src/game-data"
 fi
 
-if [ ! -z "${REDIS_PORT_6379_TCP_ADDR}" ];then
-    export WEPLAY_PORT_URI=${REDIS_PORT_6379_TCP_ADDR}:${REDIS_PORT_6379_TCP_PORT}
+if [[ -n "${REDIS_PORT}" ]];then
+    export WEPLAY_REDIS_URI=${REDIS_PORT_6379_TCP_ADDR}:${REDIS_PORT_6379_TCP_PORT}
+    export WEPLAY_REDIS_AUTH=${REDIS_PASSWORD}
+else
+    echo "Redis setting not found, can't start server." >&2 && exit 1
 fi
 
 export WEPLAY_SAVE_INTERVAL=120000

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 bad_selection() {
     echo 'Bad GAME selection, please try another one!'

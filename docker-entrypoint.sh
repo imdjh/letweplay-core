@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+export WEPLAY_SAVE_INTERVAL=${SAVE_DELAY:-120000}
+
+
 bad_selection() {
     echo 'Bad GAME selection, please try another one!'
     exit 1
@@ -23,7 +26,5 @@ if [[ -n "${REDIS_PORT}" ]];then
 else
     echo "Redis setting not found, can't start server." >&2 && exit 1
 fi
-
-export WEPLAY_SAVE_INTERVAL=120000
 
 forever /srv/weplay-emu/index.js 

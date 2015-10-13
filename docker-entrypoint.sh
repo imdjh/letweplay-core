@@ -9,10 +9,11 @@ bad_selection() {
     exit 1
 }
 
+export DN_SERVER=${DN_SERVER:-http://imdjh-dn.daoapp.io}
+
 if [ ! -z "${GAME}" ];then
     echo "Fetching game..."
-    echo "DEBUG: curl -fsSL http://imdjh-dn.daoapp.io/${GAME} -o /usr/src/game-data"
-    curl -fsSL http://imdjh-dn.daoapp.io/${GAME} -o /usr/src/game-data || bad_selection
+    curl -fsSL ${DN_SERVER}/${GAME} -o /usr/src/game-data || bad_selection
     file /usr/src/game-data > /var/tmp/game-data.filetype
     if ( $(grep -qi html /var/tmp/game-data.filetype) );then
         bad_selection

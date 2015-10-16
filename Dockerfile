@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/imdjh/weplay-emulator /srv/weplay-emu && \
         cd /srv/weplay-emu && \
+        git checkout -b fallback origin/fallback && \
         npm install && \
         npm install -g forever
 

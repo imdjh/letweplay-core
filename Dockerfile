@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
         libpango1.0-dev \
         && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/imdjh/weplay-emulator /srv/weplay-emu && \
+RUN git clone --depth=1 https://github.com/imdjh/weplay-emulator /srv/weplay-emu && \
         cd /srv/weplay-emu && \
         npm install && \
         npm install -g forever
